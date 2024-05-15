@@ -1,0 +1,68 @@
+# docker-compose.yml
+# Librement inspiré de https://medium.com/@shlomi.fenster1/setup-local-environment-for-postgresql-5531b8268397
+# Librement inspiré de https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de
+# Librement inspiré de ChatGPT
+
+version: "3"
+services:
+  viewer-postgis:
+    image: kartoza/postgis:15-3.3
+    container_name: viewer-postgis
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_MULTIPLE_EXTENSIONS: postgis,hstore,postgis_topology,postgis_raster,pgrouting
+      RUN_AS_ROOT: true
+    volumes:
+      - postgis-data:/var/lib/postgresql
+
+  viewer-api:
+    image: postgrest/postgrest
+    container_name: viewer-api
+    ports:
+      - "4000:4000"
+    links:
+      - viewer-postgis:viewer-postgis
+    environment:
+      PGRST_DB_URI: postgres://postgres:postgres@viewer-postgis:5432/postgres
+      PGRST_DB_SCHEMA: public
+      PGRST_DB_ANON_ROLE: postgres
+    depends_on:
+      - viewer-postgis
+
+  viewer-pgadmin:
+    image: dpage/pgadmin4
+    container_name: viewer-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:5050"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    depends_on:
+      - viewer-postgis
+
+  viewer-swagger:
+    image: swaggerapi/swagger-ui
+    container_name: viewer-swagger
+    ports:
+      - "3000:3000"
+    environment:
+      API_URL: http://127.0.0.1:3000/
+
+  viewer-frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - viewer-api
+
+volumes:
+  postgis-data:
+  pgadmin-data:
