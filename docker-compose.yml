@@ -3,7 +3,7 @@
 # Librement inspiré de https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de
 # Librement inspiré de ChatGPT
 
-version: "3"
+version: "4"
 services:
   viewer-postgis:
     image: kartoza/postgis:15-3.3
@@ -41,7 +41,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
-      - "5050:5050"
+      - "8081:8081"
     volumes:
       - pgadmin-data:/var/lib/pgadmin
     depends_on:
@@ -57,7 +57,7 @@ services:
 
   viewer-frontend:
     build:
-      context: ./frontend
+      context: ./viewer-frontend
     ports:
       - "8080:8080"
     depends_on:
