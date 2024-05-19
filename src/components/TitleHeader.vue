@@ -1,7 +1,7 @@
 <template>
     <div class="columns is-mobile title">
         <div class="column is-2 logo">
-            <img alt="Logo HEIG-VD geoportail" src="../assets/geoportail_logo.png">
+            <img alt="Logo HEIG-VD geoportail" src="../assets/img/geoportail_logo.png">
         </div>
         <div class="column is-2">
             <!-- Sélection de l'étage -->
@@ -14,7 +14,10 @@
             </ZoneDropdown>
             -->
         </div>
-        <div class="column is-4"></div>
+        <div class="column is-6"></div>
+        <div class="column is-2">
+            <img alt="Logo du projet IUOC" src="../assets/img/iuoc_logo.jpg">
+        </div>
         <!-- <div class="column is-2">Account</div>
         <div class="column is-2">FR | EN</div>-->
     </div>
@@ -39,26 +42,9 @@ export default {
     },
 
     created() {
-        this.zoneDropdownAdd();
     },
 
     methods: {
-
-        async zoneDropdownAdd() {
-            //TODO: query on Zones with specific structure
-            fetch(`http://127.0.0.1:8000/api/zone/?format=json`)
-                .then((response) => response.json())
-                .then(data => {
-                    data.forEach((zone) => {
-
-                        const temp = {}
-                        temp.name = zone.name;
-                        temp.slug = zone.slug;
-                        this.zonesData.push(temp);
-
-                    })
-                });
-        },
     }
 }
 </script>
@@ -81,10 +67,9 @@ export default {
     display: table-cell;
 }
 
+
 img {
-    width: 25vh;
-    height: auto;
-    /*margin-top: 1em;
-    margin-left: 1em;*/
+    width: auto;
+    height: 75px;
 }
 </style>

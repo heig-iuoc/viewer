@@ -62,10 +62,10 @@ export default {
         this.initMap();
 
         // GET 'zone' in DB
-        this.displayGeometries('a', this.space_source_a);
+        //this.displayGeometries('a', this.space_source_a);
         //this.displayGeometries('b', this.space_source_b);
-        this.displayGeometries('c', this.space_source_c);
-        this.displayGeometries('d', this.space_source_d);
+        //this.displayGeometries('c', this.space_source_c);
+        //this.displayGeometries('d', this.space_source_d);
         //this.displayGeometries('g', this.space_source_g);
         /*
         fetch(`http://127.0.0.1:8000/api/zone/?format=json`)
@@ -78,50 +78,52 @@ export default {
             });
         //this.displayGeometries('d');
         */
-        this.displayIUOC(this);
+        //this.displayIUOC(this);
 
         //-----------------------------------------
         // Ajouter un écouteur d'événements de la souris pour détecter le survol du polygone
+        /*
         this.map.on('pointermove', function (event) {
-            event.map.forEachFeatureAtPixel(event.pixel, function (feature, layer) {
-                if (layer !== null) {
-                    if (layer.get('name') === 'space') {
-                        // Vérifier si la feature est une instance de polygone
-                        if (feature instanceof Feature && feature.getGeometry() instanceof Polygon) {
+        event.map.forEachFeatureAtPixel(event.pixel, function (feature, layer) {
+            if (layer !== null) {
+                if (layer.get('name') === 'space') {
+                    // Vérifier si la feature est une instance de polygone
+                    if (feature instanceof Feature && feature.getGeometry() instanceof Polygon) {
 
-                            if (feature.getStyle() != undefined) {
-                                if (feature.getStyle().getFill().getColor() === 'rgba(192, 192, 192, 1)') {
+                        if (feature.getStyle() != undefined) {
+                            if (feature.getStyle().getFill().getColor() === 'rgba(192, 192, 192, 1)') {
 
-                                    // Changer la couleur du polygone lorsque la souris passe dessus
-                                    feature.setStyle(new Style({
-                                        stroke: new Stroke({
-                                            color: 'rgba(0, 0, 0, 1)',
-                                            width: 2,
-                                        }),
-                                        fill: new Fill({
-                                            color: 'rgba(105, 105, 105, 1)',
-                                        }),
-                                    }))
-                                }
+                                // Changer la couleur du polygone lorsque la souris passe dessus
+                                feature.setStyle(new Style({
+                                    stroke: new Stroke({
+                                        color: 'rgba(0, 0, 0, 1)',
+                                        width: 2,
+                                    }),
+                                    fill: new Fill({
+                                        color: 'rgba(105, 105, 105, 1)',
+                                    }),
+                                }))
+                            }
 
-                                else if (feature.getStyle().getFill().getColor() === 'rgba(105, 105, 105, 1)') {
+                            else if (feature.getStyle().getFill().getColor() === 'rgba(105, 105, 105, 1)') {
 
-                                    feature.setStyle(new Style({
-                                        stroke: new Stroke({
-                                            color: 'rgba(0, 0, 0, 1)',
-                                            width: 2,
-                                        }),
-                                        fill: new Fill({
-                                            color: 'rgba(192, 192, 192, 1)',
-                                        }),
-                                    }))
-                                }
+                                feature.setStyle(new Style({
+                                    stroke: new Stroke({
+                                        color: 'rgba(0, 0, 0, 1)',
+                                        width: 2,
+                                    }),
+                                    fill: new Fill({
+                                        color: 'rgba(192, 192, 192, 1)',
+                                    }),
+                                }))
                             }
                         }
                     }
                 }
-            });
+            }
         });
+        */
+        //});
     },
 
     created() {
@@ -408,7 +410,7 @@ export default {
                                                 }),
                                                 image: new Icon({
                                                     scale: 0.1,
-                                                    src: require(`../assets/blind.png`),
+                                                    src: require(`../assets/img/blind.png`),
                                                 })
                                             }));
                                             that.space_source_a.addFeature(feature_oc)
@@ -459,7 +461,7 @@ export default {
                                                 }),
                                                 image: new Icon({
                                                     scale: 0.1,
-                                                    src: require(`../assets/camera.png`),
+                                                    src: require(`../assets/img/camera.png`),
                                                 })
                                             }));
                                             that.space_source_a.addFeature(feature_oc)
@@ -510,7 +512,7 @@ export default {
                                                 }),
                                                 image: new Icon({
                                                     scale: 0.1,
-                                                    src: require(`../assets/remote.png`),
+                                                    src: require(`../assets/img/remote.png`),
                                                 })
                                             }));
                                             that.space_source_a.addFeature(feature_oc)
@@ -561,7 +563,7 @@ export default {
                                                 }),
                                                 image: new Icon({
                                                     scale: 0.1,
-                                                    src: require(`../assets/temperature.png`),
+                                                    src: require(`../assets/img/temperature.png`),
                                                 })
                                             }));
                                             that.space_source_c.addFeature(feature_oc)
@@ -612,7 +614,7 @@ export default {
                                                 }),
                                                 image: new Icon({
                                                     scale: 0.1,
-                                                    src: require(`../assets/smart-home.png`),
+                                                    src: require(`../assets/img/smart-home.png`),
                                                 })
                                             }));
                                             that.space_source_c.addFeature(feature_oc)
@@ -662,7 +664,7 @@ export default {
                                                 }),
                                                 image: new Icon({
                                                     scale: 0.1,
-                                                    src: require('../assets/camera.png'),
+                                                    src: require('../assets/img/camera.png'),
                                                 })
                                             }));
                                             that.space_source_d.addFeature(feature_oc)
@@ -704,7 +706,7 @@ export default {
                                         }),
                                         image: new Icon({
                                             scale: 0.1,
-                                            src: require('../assets/bus.png'),
+                                            src: require('../assets/img/bus.png'),
                                         })
                                     }));
 
@@ -742,7 +744,7 @@ export default {
                                             }),
                                             image: new Icon({
                                                 scale: 0.1,
-                                                src: require('../assets/bus.png'),
+                                                src: require('../assets/img/bus.png'),
                                             })
                                         }));
 
