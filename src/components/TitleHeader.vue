@@ -1,7 +1,7 @@
 <template>
     <div class="columns is-mobile title">
         <div class="column is-2 logo">
-            <img alt="Logo HEIG-VD geoportail" src="../assets/img/geoportail_logo.png">
+            <img alt="Logo HEIG-VD geoportail" src="../assets/geoportail_logo.png">
         </div>
         <div class="column is-2">
             <!-- Sélection de l'étage -->
@@ -16,7 +16,7 @@
         </div>
         <div class="column is-6"></div>
         <div class="column is-2">
-            <img alt="Logo du projet IUOC" src="../assets/img/iuoc_logo.jpg">
+            <img alt="Logo du projet IUOC" src="../assets/iuoc_logo.jpg">
         </div>
         <!-- <div class="column is-2">Account</div>
         <div class="column is-2">FR | EN</div>-->
