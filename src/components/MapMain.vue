@@ -65,7 +65,7 @@ export default {
         //this.displayPassageway_zoneA();
         this.displaySpace_zoneB();
         this.displaySpace_zoneC();
-        this.displaySpace_zoneD();
+        //this.displaySpace_zoneD();
         this.displaySpace_zoneG();
 
         this.displayIUOC(this);
@@ -160,7 +160,7 @@ export default {
                     this.space_layer_a,
                     this.space_layer_b,
                     this.space_layer_c,
-                    this.space_layer_d,
+                    //this.space_layer_d,
                     this.space_layer_g,
                     this.oc_bus_layer,
                 ],
@@ -16520,13 +16520,13 @@ export default {
                                 .then(function (data) {
                                     //Recuperation attribut label
                                     const label_thingsboard = data.label;
-                                    console.log("SALLE", label_thingsboard.toLowerCase());
+                                    //console.log("SALLE", label_thingsboard.toLowerCase());
                                     // Get feature
                                     const features = that.space_source_a.getFeatures();
                                     features.forEach(feature => {
 
                                         if (feature.getId() == label_thingsboard.toLowerCase()) {
-                                            console.log("SALLE TROUVEE", label_thingsboard);
+                                            //console.log("SALLE TROUVEE", label_thingsboard);
 
                                             // Get centroid on features
                                             const coordinates = feature.getGeometry().getCoordinates()[0];
@@ -16571,13 +16571,13 @@ export default {
                                 .then(function (data) {
                                     //Recuperation attribut label
                                     const label_thingsboard = data.label;
-                                    console.log("SALLE", label_thingsboard.toLowerCase());
+                                    //console.log("SALLE", label_thingsboard.toLowerCase());
                                     // Get feature
                                     const features = that.space_source_a.getFeatures();
                                     features.forEach(feature => {
 
                                         if (feature.getId() == label_thingsboard.toLowerCase()) {
-                                            console.log("SALLE TROUVEE", label_thingsboard);
+                                            //console.log("SALLE TROUVEE", label_thingsboard);
 
                                             // Get centroid on features
                                             const coordinates = feature.getGeometry().getCoordinates()[0];
@@ -16622,13 +16622,13 @@ export default {
                                 .then(function (data) {
                                     //Recuperation attribut label
                                     const label_thingsboard = data.label;
-                                    console.log("SALLE", label_thingsboard.toLowerCase());
+                                    //console.log("SALLE", label_thingsboard.toLowerCase());
                                     // Get feature
                                     const features = that.space_source_a.getFeatures();
                                     features.forEach(feature => {
 
                                         if (feature.getId() == label_thingsboard.toLowerCase()) {
-                                            console.log("SALLE TROUVEE", label_thingsboard);
+                                            //console.log("SALLE TROUVEE", label_thingsboard);
 
                                             // Get centroid on features
                                             const coordinates = feature.getGeometry().getCoordinates()[0];
@@ -16673,13 +16673,13 @@ export default {
                                 .then(function (data) {
                                     //Recuperation attribut label
                                     const label_thingsboard = data.label;
-                                    console.log("SALLE", label_thingsboard.toLowerCase());
+                                    //console.log("SALLE", label_thingsboard.toLowerCase());
                                     // Get feature
                                     const features = that.space_source_b.getFeatures();
                                     features.forEach(feature => {
 
                                         if (feature.getId() == label_thingsboard.toLowerCase()) {
-                                            console.log("SALLE TROUVEE", label_thingsboard);
+                                            //console.log("SALLE TROUVEE", label_thingsboard);
 
                                             // Get centroid on features
                                             const coordinates = feature.getGeometry().getCoordinates()[0];
@@ -16724,13 +16724,13 @@ export default {
                                 .then(function (data) {
                                     //Recuperation attribut label
                                     const label_thingsboard = data.label;
-                                    console.log("SALLE", label_thingsboard.toLowerCase());
+                                    //console.log("SALLE", label_thingsboard.toLowerCase());
                                     // Get feature
                                     const features = that.space_source_c.getFeatures();
                                     features.forEach(feature => {
 
                                         if (feature.getId() == label_thingsboard.toLowerCase()) {
-                                            console.log("SALLE TROUVEE", label_thingsboard);
+                                            //console.log("SALLE TROUVEE", label_thingsboard);
 
                                             // Get centroid on features
                                             const coordinates = feature.getGeometry().getCoordinates()[0];
