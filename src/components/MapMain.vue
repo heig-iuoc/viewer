@@ -16778,9 +16778,10 @@ export default {
 
                                     // Get feature
                                     const features = that.space_source_g.getFeatures();
+                                    console.log("FEATURES G:", features);
                                     features.forEach(feature => {
 
-                                        if (feature.getId() == label) {
+                                        if (feature.getId() == label.toLowerCase()) {
                                             // Get centroid on features
                                             const coordinates = feature.getGeometry().getCoordinates()[0];
                                             const res = that.calculateCentroid(coordinates);
